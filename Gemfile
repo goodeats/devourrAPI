@@ -21,6 +21,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'faker'
 end
 group :development do
   gem 'guard'
