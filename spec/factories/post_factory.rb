@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user do
+  factory :post do
     title Faker::Lorem.words(4)
     description Faker::Lorem.paragraph
     picture Faker::Avatar.image

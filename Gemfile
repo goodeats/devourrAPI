@@ -17,7 +17,7 @@ group :development, :test do
   gem 'bullet'
   gem 'lol_dba'
   gem 'dotenv-rails'
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-rails'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'factory_girl_rails', '~> 4.0'
