@@ -9,6 +9,8 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :mades
       t.integer :stashes
       t.string :location
+      t.belongs_to :user, index: true
     end
+    add_foreign_key :posts, :users
   end
 end

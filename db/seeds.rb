@@ -21,3 +21,16 @@ comments = Comment.create!([
   {body: 'hot!', picture: 'none', likes: 0}
   ])
 
+users[0].posts << posts[0]
+users[0].posts << posts[1]
+users[1].posts << posts[2]
+users[2].posts << posts[3]
+
+posts[0].comments << comments[0]
+posts[1].comments << comments[0]
+posts[2].comments << comments[1]
+posts[3].comments << comments[2]
+
+users[1].comments << comments[1]
+users[0].comments << comments[2]
+users[2].comments << comments[0]
