@@ -3,9 +3,10 @@ class UsersController < ApplicationController
   before_filter :set_user, only: [:show, :update, :destroy]
 
   def login
-    user = User.find_by(username: params[:user][:username])
-    if user && user.authenticate(params[:user][:password])
-      render json: user, status: :ok
+    user = User.find_by(username: params[:username])
+    if user = user.authenticate(params[:password])
+      session[:current_user_id] = user.token
+      render json: user, status: :accepted
     else
       head :unauthorized
     end

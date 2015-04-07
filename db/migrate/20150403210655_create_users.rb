@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :avatar, default: 'http://i.imgur.com/gaRWDZcb.jpg'
       t.string :website, default: ''
       t.string :location, default: ''
-      t.integer :privacy, default: 1
+      t.integer :privacy, default: 0
     end
   end
 end
