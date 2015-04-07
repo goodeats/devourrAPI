@@ -6,11 +6,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password_digest
       t.string :token
-      t.string :bio
-      t.string :avatar
-      t.string :website
-      t.string :location
-      t.integer :privacy
+      t.string :bio, default: ''
+      t.string :avatar, default: 'http://i.imgur.com/gaRWDZcb.jpg'
+      t.string :website, default: ''
+      t.string :location, default: ''
+      t.integer :privacy, default: 1
     end
   end
 end

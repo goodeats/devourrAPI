@@ -1,5 +1,20 @@
 class UsersController < ApplicationController
 
+  before_filter :set_user, only: [:show, :update, :destroy]
+
+  def login
+    user = User.find_by(username: params[:user][:username])
+    if user && user.authenticate(params[:user][:password])
+      render json: user, status: :ok
+    else
+      head :unauthorized
+    end
+  end
+
+  def logout
+    head :ok
+  end
+
   def index
     @users = User.all
     render json: @users, status: 200
@@ -28,9 +43,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    head :no_content
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:id, :name, :username, :email, :password, :password_confirmation, :token, :bio, :avatar, :website, :location, :privacy)
+  end
+
+  def new_user_params
+    params.require(:user).permit(:id, :name, :username, :email, :password, :password_confirmation, :token)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
