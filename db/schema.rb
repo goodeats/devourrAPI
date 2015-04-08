@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20150403212048) do
     t.string  "avatar",          default: "http://i.imgur.com/gaRWDZcb.jpg"
     t.string  "website",         default: ""
     t.string  "location",        default: ""
-    t.integer "privacy"
+    t.integer "privacy",         default: 0
   end
 
   add_foreign_key "comments", "posts"
