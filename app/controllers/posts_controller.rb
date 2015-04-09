@@ -11,9 +11,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    # @user = User.find(params[:user_id])
+    @post = Post.new(new_post_params)
+    # @user.posts << @post
     if @post.save
-      render json: {token: @post.token, id: @post.id}, status: :created, location: @post
+      render json: @post, status: :created, location: @post
     else
       render json: @post.errors, status: :unprocessable_entity
     end
@@ -35,6 +37,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def new_post_params
+    params.require(:post).permit(:title, :description, :picture, :location, :user_id)
+  end
 
   def post_params
     params.require(:post).permit(:id, :title, :description, :picture, :likes, :reheats, :mades, :stashes, :location)
