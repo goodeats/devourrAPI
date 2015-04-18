@@ -14,4 +14,3 @@ class Amazon
     return {access_key: ENV['AWS_ACCESS_KEY_ID'], key: @key, policy: @policy, signature: @signature}
   end
 end
-        # ['starts-with', '$Content-Type', 'image/jpeg'],

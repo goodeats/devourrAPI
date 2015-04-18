@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
   get '/logout', to: 'users#logout'
   patch '/amazon/sign_key/:id', to: 'amazon#sign_key'
-
+  get '/amazon/sign_key/:id', to: 'amazon#sign_key'
 end
