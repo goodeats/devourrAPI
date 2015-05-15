@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :picture
-      t.integer :likes
       t.integer :reheats
       t.integer :mades
       t.integer :stashes
