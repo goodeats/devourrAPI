@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :likes
+  has_many :followers
 
   validates :name, :username, :email, presence: true
 
