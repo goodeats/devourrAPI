@@ -14,8 +14,6 @@ class FollowsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @follow = Follow.new(follow_params)
-    require 'pry-byebug'
-    binding.pry
     @user.follows << @follow
     if @follow.save
       render json: @follow, status: :created
